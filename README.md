@@ -34,14 +34,10 @@ The circuit consists of:
 ***Working Principle:***
 When the input is logic high (1), the NMOS conducts and the PMOS is turned off, pulling the output to GND (logic low). When the input is logic low (0), the PMOS conducts and the NMOS is turned off, pulling the output to VDD (logic high). This complementary switching behavior provides low static power dissipation and rail-to-rail output swing.<br>
 This schematic forms the functional base for the subsequent layout design, DRC (Design Rule Check), LVS (Layout Versus Schematic), and post-layout simulation stages. The layout will be created using the same technology parameters to ensure electrical equivalence between the schematic and physical design.Now following steps need to be followed fo layout design <br>
-# CMOS Inverter Layout Design in Cadence Virtuoso
 
-This document provides a detailed, step-by-step procedure to design a **CMOS Inverter Layout** using **Cadence Virtuoso**. The process covers schematic import, layout generation, customization, and labeling.
-
----
 
 ## Step 1: Launch Layout XL
-In Virtuoso, go to the **top left corner** and click on:
+In Virtuoso, go to the **top left corner** and click on: ***Launch-> Layout XL***
 A start-up options window will appear.
 
 ---
@@ -53,10 +49,10 @@ A start-up options window will appear.
 
 ## Step 3: Verify New File Details
 - A **New File** form appears.  
-- Ensure:
-  - **Library**: Same as the schematic library.
-  - **Cellname**: Same as the schematic cell name.
-  - **Viewname**: Default (Layout).
+- Ensure that:
+  - **Library**should be same as the schematic library.
+  - **Cellname**should be same as the schematic cell name and **Viewname**
+ By default it will load,user has to just check it.
 - Click **OK**.
 
 ---
@@ -67,77 +63,61 @@ A start-up options window will appear.
 
 ---
 
-## Step 5: Adjust Display Options
-Before adding components:
-- **Grid Control**:
-  - X Snap Spacing = `0.005`
-  - Y Snap Spacing = `0.005`
-- **Display Levels**:
-  - Start = `0`
-  - Stop = `10`
+## Step 5: Adding components to the Layout
+Before adding  the component, displaying options should be aligned properly so that the MOSFET layout which is added will be clearly visible.<br>
+On top goto ***Options-> Display Options***<br>
+Adjust the display settings for better visibility:
+ - **Grid Control**: Set `X Snap Spacing` = 0.005, `Y Snap Spacing` = 0.005  
+ - **Display Levels**: Start = 0, Stop = 10  
+
 
 ---
 
 ## Step 6: Generate Layout from Schematic
-In the **Generate Layout** window:
-- Check:
-  - **I/O pins**
-  - **PR boundary**
-  - **Extract Connectivity after Generation**
+Now for adding the components, goto **Connectivity**->**Generate**->**All from Source**.<br>
+Now a window of Generate Layout will be opened as shown in Fig. 5.
+In the **Generate Layout** window, check **I/O pins**, **PR boundary** and**Extract Connectivity after Generation.**
 - Click **OK**.
 
 ---
 
 ## Step 7: Initial Layout View
-- The layout (top view) of the respective MOSFETs appears according to the chosen technology.
-- For the inverter:
-  - PMOS and NMOS layouts appear with **vdd**, **gnd**, **in**, and **out** markings.
+- The layout (top view) of the respective MOSFETs appears according to the chosen technology, i.e., it will be predesigned.
+- For the CMOS inverter:PMOS and NMOS layouts appear with **vdd**, **gnd**, **in**, and **out** markings.
 
 ---
 
 ## Step 8: Customize Layout Connections
-- To move a layout: Select it and press **`m`**.
-- To draw a connection: Press **`Ctrl + Shift + w`**.
-  - Select the appropriate layer (Metal, PolySi, etc.) from LSW.
-  - Merge same nets if required.
-  - Use:
-    ```
-    Create → Shape
-    ```
-    for additional shapes.
+- For moving the layouts, just after selecting the layout ,**press m**.
+- For making  connections, Press **Ctrl + Shift + w**.
+This will initialize line tool for drawing the metallic/ploy/required connection between the areas in layout. Appropriate Layers (Metal, polySi, etc) from the LSW can be selected
+Note: Merging of same nets are also allowed. From **Create->Shape**,many options for other shapes are available for drawing.
 
 ---
 
 ## Step 9: Add N-Well Region for VDD
 - PMOS requires an **N-well** as it is made on an N-type substrate.
-- From LSW, select **WN**.
-- Draw the N-well using:
-or simply press **`R`**.
+  For this **select WN from LSW** and then, **rectangle shape** can be selected by **pressing R** or from **Create->Shape->Rectangle**. Now draw the N well region as required.
 
 ---
 
 ## Step 10: Create N-Well and P-Well Tapping
-- For N-well tapping:
-- In **MPP template**, select **NWELL Tap**, click **Hide**, and draw inside the N-well region.
-- For ground (P-type substrate) tapping:
-- Select **PWELL Tap** from the Multipart Path menu and draw directly on the black substrate area.
-
+-  Now for the exact connection of VDD,**N Well tapping** on the created NWell region is made. This is done by clicking on **Create -> Multipart path** and then **press F3**.
+- From the Multipart path window appearing, in **MPP template** select **NWELL Tap** and click **Hide**. Go to the earlier created N Well region and just click once, and drag to draw
+ the NWell tapping.
+- Similar to this for **ground connections, PWELL tapping** can be directly selected from the **Multipart path** and drawn on the P type substrate (which is the black area).
+  
 ---
 
 ## Step 11: Connect Gates with PolySi and Vias
-- The **PolySi (red)** gates of PMOS and NMOS are connected together for inverter input.
-- To add contact vias:
-- In **MPP template**, select **GC_M1**, click **Hide**, and draw on the PolySi gate input.
+- The polySi ( i.e., the gate) of both the NMOS and PMOS are connected together for inverter input. Now to provide the contact vias for the polySi and metal1 again click on **Create-> Multipart Path** and then **press F3**. In MPP template, select **GC_M1** andclick hide. Now just draw on the polySi gate input
 
 ---
 
 ## Step 12: Label Ports
 - Labels for **in**, **out**, **vdd**, and **gnd** must match schematic names.
 - Press **`L`** to label.
-- In the Label Pattern:
-- **Layer**: M1 Label
-- Place labels exactly on the **Metal (blue)** layer with the `+` sign aligned to the metal area.
-
+-  Give the names of the ports as in schematic in the Label (Pattern). Select Layer as **M1 Label**. Now Click on Hide and start placing the labels at respective positions.
 ---
 
 ## Step 13: Save the Layout
@@ -146,6 +126,6 @@ or simply press **`R`**.
 
 ---
 
-**Note:** Follow the design rules of the chosen technology library to avoid DRC errors.
+
 
 
