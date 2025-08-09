@@ -33,4 +33,119 @@ The circuit consists of:
 
 ***Working Principle:***
 When the input is logic high (1), the NMOS conducts and the PMOS is turned off, pulling the output to GND (logic low). When the input is logic low (0), the PMOS conducts and the NMOS is turned off, pulling the output to VDD (logic high). This complementary switching behavior provides low static power dissipation and rail-to-rail output swing.<br>
-This schematic forms the functional base for the subsequent layout design, DRC (Design Rule Check), LVS (Layout Versus Schematic), and post-layout simulation stages. The layout will be created using the same technology parameters to ensure electrical equivalence between the schematic and physical design.
+This schematic forms the functional base for the subsequent layout design, DRC (Design Rule Check), LVS (Layout Versus Schematic), and post-layout simulation stages. The layout will be created using the same technology parameters to ensure electrical equivalence between the schematic and physical design.Now following steps need to be followed fo layout design <br>
+# CMOS Inverter Layout Design in Cadence Virtuoso
+
+This document provides a detailed, step-by-step procedure to design a **CMOS Inverter Layout** using **Cadence Virtuoso**. The process covers schematic import, layout generation, customization, and labeling.
+
+---
+
+## Step 1: Launch Layout XL
+In Virtuoso, go to the **top left corner** and click on:
+A start-up options window will appear.
+
+---
+
+## Step 2: Create New Layout
+- Select **Create New** and click **OK**.
+
+---
+
+## Step 3: Verify New File Details
+- A **New File** form appears.  
+- Ensure:
+  - **Library**: Same as the schematic library.
+  - **Cellname**: Same as the schematic cell name.
+  - **Viewname**: Default (Layout).
+- Click **OK**.
+
+---
+
+## Step 4: Layout and Schematic Windows
+- The **LSW (Layer Select Window)** and a blank layout window appear along with the schematic window.
+- The blank black area represents the **p-type substrate**.
+
+---
+
+## Step 5: Adjust Display Options
+Before adding components:
+- **Grid Control**:
+  - X Snap Spacing = `0.005`
+  - Y Snap Spacing = `0.005`
+- **Display Levels**:
+  - Start = `0`
+  - Stop = `10`
+
+---
+
+## Step 6: Generate Layout from Schematic
+In the **Generate Layout** window:
+- Check:
+  - **I/O pins**
+  - **PR boundary**
+  - **Extract Connectivity after Generation**
+- Click **OK**.
+
+---
+
+## Step 7: Initial Layout View
+- The layout (top view) of the respective MOSFETs appears according to the chosen technology.
+- For the inverter:
+  - PMOS and NMOS layouts appear with **vdd**, **gnd**, **in**, and **out** markings.
+
+---
+
+## Step 8: Customize Layout Connections
+- To move a layout: Select it and press **`m`**.
+- To draw a connection: Press **`Ctrl + Shift + w`**.
+  - Select the appropriate layer (Metal, PolySi, etc.) from LSW.
+  - Merge same nets if required.
+  - Use:
+    ```
+    Create → Shape
+    ```
+    for additional shapes.
+
+---
+
+## Step 9: Add N-Well Region for VDD
+- PMOS requires an **N-well** as it is made on an N-type substrate.
+- From LSW, select **WN**.
+- Draw the N-well using:
+or simply press **`R`**.
+
+---
+
+## Step 10: Create N-Well and P-Well Tapping
+- For N-well tapping:
+- In **MPP template**, select **NWELL Tap**, click **Hide**, and draw inside the N-well region.
+- For ground (P-type substrate) tapping:
+- Select **PWELL Tap** from the Multipart Path menu and draw directly on the black substrate area.
+
+---
+
+## Step 11: Connect Gates with PolySi and Vias
+- The **PolySi (red)** gates of PMOS and NMOS are connected together for inverter input.
+- To add contact vias:
+- In **MPP template**, select **GC_M1**, click **Hide**, and draw on the PolySi gate input.
+
+---
+
+## Step 12: Label Ports
+- Labels for **in**, **out**, **vdd**, and **gnd** must match schematic names.
+- Press **`L`** to label.
+- In the Label Pattern:
+- **Layer**: M1 Label
+- Place labels exactly on the **Metal (blue)** layer with the `+` sign aligned to the metal area.
+
+---
+
+## Step 13: Save the Layout
+- Once all connections and labels are complete, save the design.
+- Ensure the layout matches the schematic in connectivity before moving to DRC/LVS.
+
+---
+
+**Note:** Follow the design rules of the chosen technology library to avoid DRC errors.
+
+
