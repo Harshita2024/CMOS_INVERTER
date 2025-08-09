@@ -36,6 +36,5 @@ The circuit consists of:
 - Multiplication factor (m): 1 (single device per type).
 
 ***Working Principle:***
-When the input is logic high (1), the NMOS conducts and the PMOS is turned off, pulling the output to GND (logic low). When the input is logic low (0), the PMOS conducts and the NMOS is turned off, pulling the output to VDD (logic high). This complementary switching behavior provides low static power dissipation and rail-to-rail output swing.
-
+When the input is logic high (1), the NMOS conducts and the PMOS is turned off, pulling the output to GND (logic low). When the input is logic low (0), the PMOS conducts and the NMOS is turned off, pulling the output to VDD (logic high). This complementary switching behavior provides low static power dissipation and rail-to-rail output swing.<br>
 This schematic forms the functional base for the subsequent layout design, DRC (Design Rule Check), LVS (Layout Versus Schematic), and post-layout simulation stages. The layout will be created using the same technology parameters to ensure electrical equivalence between the schematic and physical design.
