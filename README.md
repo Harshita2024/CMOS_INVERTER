@@ -19,7 +19,7 @@ manufacturing phase . Before moving onto the layout editing, inverter schematic 
   
 ---
 ## Creating the Layout
-The first step in the CMOS inverter layout design process is creating the transistor-level schematic. The schematic shown above has been implemented using the GPDK 90nm technology library in Cadence Virtuoso.
+The first step in the CMOS inverter layout design process is creating the transistor-level schematic. The schematic shown below has been implemented using the GPDK 90nm technology library in Cadence Virtuoso.
 The circuit consists of:
 
 - **PMOS transistor (PM0)*** : It is connected at the top, with its source tied to VDD and drain connected to the output node.<br>
@@ -30,6 +30,7 @@ The circuit consists of:
 - Channel length (L): 100 nm for both PMOS and NMOS.<br>
 - Channel width (W): 120 nm for both devices.<br>
 - Multiplication factor (m): 1 (single device per type).<br>
+![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/bf1da7c60e90897cd4680a44e903b58a14391a7c/Fig.1.CMOS%20Inverter%20Schematic.png)
 
 ***Working Principle:***
 When the input is logic high (1), the NMOS conducts and the PMOS is turned off, pulling the output to GND (logic low). When the input is logic low (0), the PMOS conducts and the NMOS is turned off, pulling the output to VDD (logic high). This complementary switching behavior provides low static power dissipation and rail-to-rail output swing.<br>
