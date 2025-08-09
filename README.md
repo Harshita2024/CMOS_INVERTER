@@ -1,5 +1,5 @@
 # CMOS Inverter Layout Design using Cadence Virtuoso
-
+---
 This project showcases the complete custom design flow of a **CMOS Inverter**, implemented using **Cadence Virtuoso** with the **GPDK 90nm** technology. It covers various guiding steps which will help in understanding the design process in creating a custom IC layout for the CMOS design. Once the designing of the layout is done using the Virtuoso Layout XL, one can move onto the ***Design Rule Check (DRC)***,  and then to ***Layout V/s Schematic (LVS)***. 
 
 In VLSI design, as processes become more and more complex, need for the designer to understand the intricacies of the fabrication process and interpret the relations between the different photo masks is really troublesome. Therefore, a set of layout rules, also called ***design rules***, has been defined. They act as an interface or communication link between the circuit designer and the process engineer during the
@@ -19,6 +19,7 @@ manufacturing phase . Before moving onto the layout editing, inverter schematic 
   
 ---
 ## Creating the Layout
+---
 The first step in the CMOS inverter layout design process is creating the transistor-level schematic. The schematic shown below has been implemented using the GPDK 90nm technology library in Cadence Virtuoso.
 The circuit consists of:
 
@@ -135,6 +136,7 @@ Note: Merging of same nets are also allowed. From **Create->Shape**,many options
 ---
 
 ## PHYSICAL VERIFICATION
+---
  - ## Running DRC(Design Rules Check)
    - Here we check whether our design obeys the design rules or not.
      For running DRC click on **Calibre->Run nmDRC…**. A new window pop up will appear. Here, it will ask for the correct path of the file which we are working on. Verify the path and click ok.
@@ -156,7 +158,7 @@ Note: Merging of same nets are also allowed. From **Create->Shape**,many options
       **Note**: Before running LVS first time, ensure that the option **“Export from the Schematic view”** under Inputs > Netlist and Layout.
     - **Step 5**: Now go back to LVS popup window. Under **inputs > Netlist, uncheck “Export from the Schematic”**.
     - **Step 6**: Under the **Netlist** itself near Spice files of netlist **“View”** option is to be clicked.
-    - 
+      
        ![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/71e50093a33cae8d5a8a4f4e8d2b49983df0e068/Fig.10.Calibre%20Interactive-nmLVS.png)
       
       Edit the ***.SCALE METER** line to **.OPTION SCALE=1e-06** .
@@ -166,11 +168,12 @@ Note: Merging of same nets are also allowed. From **Create->Shape**,many options
        ![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/71e50093a33cae8d5a8a4f4e8d2b49983df0e068/Fig.11.LVS%20Comparison%20_Results.png)
       
 
-
+---
 ## Conclusion 
 
 The project successfully demonstrates the complete process of designing a CMOS inverter layout using 90 nm technology in Cadence Virtuoso, followed by physical verification through DRC and LVS checks in Calibre. Each stage ensures the design is both manufacturable and logically correct, with DRC validating adherence to fabrication rules and LVS confirming schematic–layout equivalence. These steps form a standard VLSI design flow that can be extended to more complex circuits, enabling accurate, fabrication-ready integrated circuit designs.  
 
+---
 ## Further Applications
 
 - Development of larger digital logic blocks such as NAND, NOR, XOR gates.  
@@ -178,11 +181,12 @@ The project successfully demonstrates the complete process of designing a CMOS i
 - Use in low-power digital systems, microprocessors, and memory circuits.  
 - Educational demonstrations for VLSI design and fabrication processes.  
 
+---
 ## Possible Improvements
 
 - Optimizing layout for reduced parasitic capacitance and resistance to improve speed.  
 - Implementing automated routing to reduce manual layout effort.  
 - Extending the design to multiple logic gates in a single chip for compact IC development.  
 - Applying design-for-manufacturability (DFM) techniques to improve yield in fabrication.  
-
+---
 
