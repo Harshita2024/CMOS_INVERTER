@@ -135,13 +135,36 @@ Note: Merging of same nets are also allowed. From **Create->Shape**,many options
 ---
 
 ## PHYSICAL VERIFICATION
-- ## Running DRC
-- Here we check whether our design obeys the design rules or not.
- For running DRC click on **Calibre->Run nmDRC…**. A new window pop up will appear. Here, it will ask for the correct path of the file which we are working on. Verify the path and click ok.
- - Now click on **Run DRC /Start DRC**.
- - A New Pop up window will appear which will be showing the details of the design rule checked report according to the design rule file of the tool. If any errors regarding the design rule of the layout, it     will show the corresponding errors. On double clicking on the error number, one can find where exactly the error has happened. While on single click on the error number will give the details regarding the     error.
+ - ## Running DRC(Design Rules Check)
+  - Here we check whether our design obeys the design rules or not.
+    For running DRC click on **Calibre->Run nmDRC…**. A new window pop up will appear. Here, it will ask for the correct path of the file which we are working on. Verify the path and click ok.
+  - Now click on **Run DRC /Start DRC**.
+  - A New Pop up window will appear which will be showing the details of the design rule checked report according to the design rule file of the tool. If any errors regarding the design rule of the layout, it     will show the corresponding errors. On double clicking on the error number, one can find where exactly the error has happened. While on single click on the error number will give the details regarding the     error.
  - In case no DRC error is showing, one can move onto next steps.
  - In case of error, one has to go back to the layout and rectify those errors accordingly. Then save the layout and do again run the DRC from calibre option.
+
+ - ## Running LVS(Layout Versus Schematic)
+    - LVS on the other hand, verifies if your layout matches the transistors defined in your schematic or NOT. Therefore, LVS program needs both your "schematic" as well as "layout" files as its input and           compares them.
+    - **Step 1**: For running LVS click on **Calibre->Run nmLVS…**
+    - **Step 2**: A new window pop up will appear. Here, it will ask for the correct path of the file which we are working on. Verify the path and click ok.
+    - **Step 3**: Now click on **Run LVS**.
+    - **Step 4**: After first run of LVS, it will show that the result of LVS is incorrect.
+      In this first LVS run actually the input for the net list of the schematic is exported from the schematic itself.
+      
+      ![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/71e50093a33cae8d5a8a4f4e8d2b49983df0e068/Fig.9.%20LVS%20Comparison%20Results.png)
+      
+      **Note**: Before running LVS first time, ensure that the option **“Export from the Schematic view”** under Inputs > Netlist and Layout.
+    - **Step 5**: Now go back to LVS popup window. Under **inputs > Netlist, uncheck “Export from the Schematic”**.
+    - **Step 6**: Under the **Netlist** itself near Spice files of netlist **“View”** option is to be clicked.
+    - 
+       ![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/71e50093a33cae8d5a8a4f4e8d2b49983df0e068/Fig.10.Calibre%20Interactive-nmLVS.png)
+      
+      Edit the ***.SCALE METER** line to **.OPTION SCALE=1e-06** .
+      Now **save** the file and **run LVS again.**
+    - **Step 7**: Now LVS comparison result window will show the results. If all the ports of layout and schematic are matched, then it will now show correct. Else, one has to again go back and check the            layout ports naming, placing of label, number of ports in layout and schematic, etc.
+      
+       ![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/71e50093a33cae8d5a8a4f4e8d2b49983df0e068/Fig.11.LVS%20Comparison%20_Results.png)
+      
 
 ---
 
