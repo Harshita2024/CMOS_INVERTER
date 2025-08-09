@@ -45,7 +45,7 @@ A start-up options window will appear.
 
 ## Step 2: Create New Layout
 - Select **Create New** and click **OK**.
-
+![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/6f8ea0dbb96d7ffa5462ee7fcf7ce302da955c77/Fig%202.Startup%20option.png)
 
 
 ## Step 3: Verify New File Details
@@ -55,7 +55,7 @@ A start-up options window will appear.
   - **Cellname** should be same as the schematic cell name and **Viewname**
  By default it will load,user has to just check it.
 - Click **OK**.
-
+![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/6f8ea0dbb96d7ffa5462ee7fcf7ce302da955c77/Fig.%203.%20New%20file.png)
 
 
 ## Step 4: Layout and Schematic Windows
@@ -70,7 +70,7 @@ On top goto ***Options-> Display Options***<br>
 Adjust the display settings for better visibility:
  - **Grid Control**: Set `X Snap Spacing` = 0.005, `Y Snap Spacing` = 0.005  
  - **Display Levels**: Start = 0, Stop = 10  
-
+![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/6f8ea0dbb96d7ffa5462ee7fcf7ce302da955c77/Fig.4.%20Display%20Options.png)
 
 
 
@@ -79,7 +79,7 @@ Now for adding the components, goto **Connectivity**->**Generate**->**All from S
 Now a window of Generate Layout will be opened as shown in Fig. 5.
 In the **Generate Layout** window, check **I/O pins**, **PR boundary** and**Extract Connectivity after Generation.**<br>
 Click **OK**.
-
+![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/6f8ea0dbb96d7ffa5462ee7fcf7ce302da955c77/Fig.5.%20Generate%20Layout.png)
 
 
 ## Step 7: Initial Layout View
@@ -107,7 +107,7 @@ Note: Merging of same nets are also allowed. From **Create->Shape**,many options
 - From the Multipart path window appearing, in **MPP template** select **NWELL Tap** and click **Hide**. Go to the earlier created N Well region and just click once, and drag to draw
  the NWell tapping.
 - Similar to this for **ground connections, PWELL tapping** can be directly selected from the **Multipart path** and drawn on the P type substrate (which is the black area).
-  
+ ![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/6f8ea0dbb96d7ffa5462ee7fcf7ce302da955c77/Fig.6.%20Create%20Multipart%20Path.png) 
 
 
 ## Step 11: Connect Gates with PolySi and Vias
@@ -119,11 +119,11 @@ Note: Merging of same nets are also allowed. From **Create->Shape**,many options
 - Labels for **in**, **out**, **vdd**, and **gnd** must match schematic names.
 - Press **`L`** to label.
 -  Give the names of the ports as in schematic in the Label (Pattern). Select Layer as **M1 Label**. Now Click on Hide and start placing the labels at respective positions.
- 
+ ![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/6f8ea0dbb96d7ffa5462ee7fcf7ce302da955c77/Fig.%207.Create%20Label.png)
 ## Step 13: Save the Layout
 - Once all connections and labels are complete, save the design.
 - Ensure the layout matches the schematic in connectivity before moving to DRC/LVS.
-
+![CMOS Inverter Schematic](https://github.com/Harshita2024/CMOS_INVERTER/blob/6f8ea0dbb96d7ffa5462ee7fcf7ce302da955c77/Fig.8.%20CMOS%20Inverter%20Layout%20Design.png)
 
 
 
