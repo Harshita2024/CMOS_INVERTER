@@ -136,7 +136,7 @@ Note: Merging of same nets are also allowed. From **Create->Shape**,many options
 
 ## PHYSICAL VERIFICATION
 - ## Running DRC
-  - Here we check whether our design obeys the design rules [1].
+- Here we check whether our design obeys the design rules or not.
  For running DRC click on **Calibre->Run nmDRC…**. A new window pop up will appear. Here, it will ask for the correct path of the file which we are working on. Verify the path and click ok.
  - Now click on **Run DRC /Start DRC**.
  - A New Pop up window will appear which will be showing the details of the design rule checked report according to the design rule file of the tool. If any errors regarding the design rule of the layout, it     will show the corresponding errors. On double clicking on the error number, one can find where exactly the error has happened. While on single click on the error number will give the details regarding the     error.
