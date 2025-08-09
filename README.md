@@ -1,5 +1,5 @@
 # CMOS Inverter Layout Design using Cadence Virtuoso
----
+
 This project showcases the complete custom design flow of a **CMOS Inverter**, implemented using **Cadence Virtuoso** with the **GPDK 90nm** technology. It covers various guiding steps which will help in understanding the design process in creating a custom IC layout for the CMOS design. Once the designing of the layout is done using the Virtuoso Layout XL, one can move onto the ***Design Rule Check (DRC)***,  and then to ***Layout V/s Schematic (LVS)***. 
 
 In VLSI design, as processes become more and more complex, need for the designer to understand the intricacies of the fabrication process and interpret the relations between the different photo masks is really troublesome. Therefore, a set of layout rules, also called ***design rules***, has been defined. They act as an interface or communication link between the circuit designer and the process engineer during the
@@ -9,7 +9,7 @@ manufacturing phase . Before moving onto the layout editing, inverter schematic 
 
 
 
----
+
 
 ##  Tools & Technology
 
@@ -19,7 +19,7 @@ manufacturing phase . Before moving onto the layout editing, inverter schematic 
   
 ---
 ## Creating the Layout
----
+
 The first step in the CMOS inverter layout design process is creating the transistor-level schematic. The schematic shown below has been implemented using the GPDK 90nm technology library in Cadence Virtuoso.
 The circuit consists of:
 
@@ -136,7 +136,7 @@ Note: Merging of same nets are also allowed. From **Create->Shape**,many options
 ---
 
 ## PHYSICAL VERIFICATION
----
+
  - ## Running DRC(Design Rules Check)
    - Here we check whether our design obeys the design rules or not.
      For running DRC click on **Calibre->Run nmDRC…**. A new window pop up will appear. Here, it will ask for the correct path of the file which we are working on. Verify the path and click ok.
