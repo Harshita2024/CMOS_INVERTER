@@ -18,4 +18,18 @@ manufacturing phase . Before moving onto the layout editing, inverter schematic 
 - **GPDK 90nm** – Process Design Kit used
   
 ---
+## Creating the Layout
+The first step in the CMOS inverter layout design process is creating the transistor-level schematic. The schematic shown above has been implemented using the GPDK 90nm technology library in Cadence Virtuoso.
+The circuit consists of:
+-**PMOS transistor (PM0)*** : It is connected at the top, with its source tied to VDD and drain connected to the output node.
+-**NMOS transistor (NM0)*** : It is connected at the bottom, with its source tied to GND and drain connected to the output node.
+-Both transistor gates are shorted together to form the input node.
 
+***Key Parameters:***
+-Channel length (L): 100 nm for both PMOS and NMOS.
+-Channel width (W): 120 nm for both devices.
+-Multiplication factor (m): 1 (single device per type).
+
+***Working Principle:***
+When the input is logic high (1), the NMOS conducts and the PMOS is turned off, pulling the output to GND (logic low). When the input is logic low (0), the PMOS conducts and the NMOS is turned off, pulling the output to VDD (logic high). This complementary switching behavior provides low static power dissipation and rail-to-rail output swing.
+This schematic forms the functional base for the subsequent layout design, DRC (Design Rule Check), LVS (Layout Versus Schematic), and post-layout simulation stages. The layout will be created using the same technology parameters to ensure electrical equivalence between the schematic and physical design.
